@@ -504,11 +504,6 @@ class AuthorizationCodeGrant(GrantTypeBase):
 
         # REQUIRED. The authorization code received from the
         # authorization server.
-        log.debug("*" * 80)
-        log.debug(f"====> CLIENT ID: {request.client_id}")
-        log.debug(f"====> CODE: {request.code}")
-        log.debug(f"====> CLIENT: {request.client}")
-        log.debug("*" * 80)
         if not self.request_validator.validate_code(
             request.client_id, request.code, request.client, request
         ):

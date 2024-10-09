@@ -43,9 +43,6 @@ class Server(
         *args,
         **kwargs,
     ):
-        log.debug("*" * 80)
-        log.debug(f"=======> SERVER CONSTRUCTED <========")
-        log.debug("*" * 80)
         """Construct a new all-grants-in-one server.
 
         :param request_validator: An implementation of

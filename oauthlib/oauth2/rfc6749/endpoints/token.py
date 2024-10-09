@@ -65,9 +65,6 @@ class TokenEndpoint(BaseEndpoint):
         self._grant_types = grant_types
         self._default_token_type = default_token_type
         self._default_grant_type = default_grant_type
-        log.debug("*" * 80)
-        log.debug(f"====> TOKEN ENDPOINT: Grant types: {grant_types}")
-        log.debug("*" * 80)
 
     @property
     def grant_types(self):
@@ -97,9 +94,6 @@ class TokenEndpoint(BaseEndpoint):
         claims=None,
     ):
         """Extract grant_type and route to the designated handler."""
-        log.debug("*" * 80)
-        log.debug("=====> CREATE TOKEN RESPONSE <=====")
-        log.debug("*" * 80)
         request = Request(uri, http_method=http_method, body=body, headers=headers)
         self.validate_token_request(request)
         # 'scope' is an allowed Token Request param in both the "Resource Owner Password Credentials Grant"

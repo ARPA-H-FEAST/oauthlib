@@ -279,6 +279,8 @@ class GrantTypeBase:
 
         origin = request.headers["origin"]
         if not is_secure_transport(origin):
+            # Required for insecure connections (i.e., localhost)
+            # See SO for (*really neat looking*) local dev over https: https://stackoverflow.com/a/28933593
             log.debug('Origin "%s" is not HTTPS, but YOLO(!).', origin)
             return {"Access-Control-Allow-Origin": origin}
             # return {}
